@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Khushi Mehta for Corgi Cafe London: the doors she opens, the gap she sees, and what she'd build with you.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Built Over Coffee · Khushi Mehta × Corgi Cafe">
+<meta property="og:description" content="I open doors for a living. Three pages, two minutes, a few corgis.">
+<meta property="og:image" content="https://khusshh541-cell.github.io/corgi-pitch/preview.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1254">
+<meta property="og:url" content="https://khusshh541-cell.github.io/corgi-pitch/">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Built Over Coffee</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@500;700&family=DM+Mono:wght@400;500&display=swap">
+</head>
+<body>
+<style>
+/* Layout: a hand-made zine in three pages. Page 1 is a row of doors that swing open, page 2 a slider that pulls two coffee cups together, page 3 a pinboard of ideas that builds a coffee-order receipt. Blue "pen" notes annotate everything. */
+:root{
+  --paper:#FFF9F1; --card:#FFFFFF; --ink:#20140D; --muted:#6C5646; --line:#E9D8C6;
+  --orange:#FF5A1F; --orange-ink:#B53A08; --pen:#2C4FD8; --tape:rgba(255,214,140,.75);
+  --on-orange:#20140D; --glow:#FFE7B8;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --hand:"Caveat","Comic Sans MS","Bradley Hand",cursive;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#17110D; --card:#211813; --ink:#F6ECE2; --muted:#B39D8C; --line:#3A2B21;
+  --orange:#FF6B2E; --orange-ink:#FF9C6B; --pen:#8EA6FF; --tape:rgba(255,200,120,.35);
+  --on-orange:#17110D; --glow:#4A3416; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#17110D; --card:#211813; --ink:#F6ECE2; --muted:#B39D8C; --line:#3A2B21;
+  --orange:#FF6B2E; --orange-ink:#FF9C6B; --pen:#8EA6FF; --tape:rgba(255,200,120,.35);
+  --on-orange:#17110D; --glow:#4A3416; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--display);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(var(--line) 1px,transparent 1.2px);background-size:22px 22px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.02}
+p{margin:0}
+a{color:var(--orange-ink)}
+:focus-visible{outline:3px solid var(--pen);outline-offset:3px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.pen{font-family:var(--hand);color:var(--pen);font-size:26px;line-height:1.1;font-weight:500}
+.rough{filter:url(#rough)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:2px solid var(--ink)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding-block:12px}
+.who{display:flex;align-items:center;gap:10px;font-weight:600}
+.who svg{width:44px;height:28px;flex-shrink:0}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{font:inherit;font-size:15px;font-weight:600;background:transparent;color:var(--ink);border:2px solid transparent;padding:8px 12px;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:8px}
+.tab .n{font-family:var(--hand);font-size:22px;color:var(--pen)}
+.tab[aria-selected="true"]{border-color:var(--ink);background:var(--card);box-shadow:3px 3px 0 var(--ink)}
+
+main{padding-block:44px 80px;overflow-x:clip}
+section.page{display:flex;flex-direction:column;gap:56px}
+
+/* page 1 hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:36px;align-items:center}
+.hero h1{font-size:clamp(50px,8.4vw,112px);font-weight:800;letter-spacing:-.035em}
+.hero h1 .door-word{position:relative;display:inline-block;color:var(--orange-ink)}
+.hero h1 .door-word svg{position:absolute;left:-4%;right:-4%;bottom:-.12em;width:108%;height:.32em}
+.hero .aside{display:flex;flex-direction:column;gap:18px}
+.note{position:relative;background:var(--card);border:2px solid var(--ink);padding:22px 22px 20px;box-shadow:5px 5px 0 var(--ink);transform:rotate(1.2deg)}
+.note::before{content:"";position:absolute;top:-14px;left:50%;width:96px;height:26px;margin-left:-48px;background:var(--tape);transform:rotate(-3deg)}
+.note p{font-size:18px}
+.sub{display:flex;align-items:flex-start;gap:10px;max-width:40ch}
+.sub svg{width:54px;height:40px;flex-shrink:0;margin-top:4px}
+
+/* doors */
+.doors{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.door{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;gap:10px;align-items:stretch;text-align:center}
+.frame{position:relative;aspect-ratio:3/5;max-width:100%;border:3px solid var(--ink);border-bottom-width:6px;background:var(--glow);perspective:700px;overflow:visible}
+.frame .light{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12%}
+.frame .light svg{width:62%;height:auto}
+.leaf{position:absolute;inset:0;transform-origin:left center;transition:transform .6s cubic-bezier(.3,1.3,.5,1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:10px;border-right:2px solid var(--ink)}
+.leaf::after{content:"";position:absolute;right:12%;top:52%;width:12px;height:12px;border-radius:50%;background:var(--ink)}
+.leaf .panel{position:absolute;left:14%;right:14%;border:2px solid currentColor;opacity:.35}
+.leaf .p1{top:8%;height:30%}.leaf .p2{bottom:8%;height:30%}
+.sign{position:relative;z-index:1;background:var(--card);color:var(--ink);border:2px solid var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:6px 6px;line-height:1.25;transform:rotate(-4deg);max-width:100%}
+.d0 .leaf{background:var(--orange);color:var(--on-orange)}
+.d1 .leaf{background:var(--card);color:var(--ink)}
+.d2 .leaf{background:var(--pen);color:var(--card)}
+.d3 .leaf{background:var(--ink);color:var(--paper)}
+.d4 .leaf{background:var(--card);color:var(--ink);border-style:dashed}
+.door[aria-pressed="true"] .leaf{transform:rotateY(-72deg)}
+.door:hover .leaf{transform:rotateY(-14deg)}
+.door[aria-pressed="true"]:hover .leaf{transform:rotateY(-72deg)}
+.door .lbl{font-family:var(--hand);font-size:22px;color:var(--pen)}
+.frame .light{padding:8% 6% 10%;align-items:center}
+.frame .light .scene{width:100%;height:100%}
+.scene text{font-family:var(--hand);fill:var(--ink)}
+.scene .pop{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.4)}
+.door[aria-pressed="true"] .scene .pop{animation:pop .45s cubic-bezier(.3,1.6,.5,1) forwards}
+.door[aria-pressed="true"] .scene .p2{animation-delay:.35s}
+.door[aria-pressed="true"] .scene .p3{animation-delay:.7s}
+.door[aria-pressed="true"] .scene .p4{animation-delay:1s}
+.scene .float{transform-box:fill-box}
+.door[aria-pressed="true"] .scene .float{animation:floatUp 2.4s ease-in infinite}
+.door[aria-pressed="true"] .scene .f2{animation-delay:.8s}
+.door[aria-pressed="true"] .scene .f3{animation-delay:1.6s}
+.door[aria-pressed="true"] .scene .swing{transform-box:fill-box;transform-origin:50% 0;animation:swing 1.8s ease-in-out infinite}
+.door[aria-pressed="true"] .scene .beam{animation:beam 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+@keyframes pop{to{opacity:1;transform:scale(1)}}
+@keyframes floatUp{0%{opacity:0;transform:translateY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes swing{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@keyframes beam{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+.trot{position:relative;height:64px;margin-top:-6px}
+.trot svg{position:absolute;top:0;width:calc((100% - 56px)/5);height:64px;left:calc(var(--i,0) * ((100% - 56px)/5 + 14px));transition:left .7s cubic-bezier(.4,1.2,.5,1)}
+.trot svg.left{transform:scaleX(-1)}
+.trot.go svg{animation:hop .18s ease-in-out 4 alternate}
+@keyframes hop{to{translate:0 -6px}}
+.peek{position:absolute;width:74px;height:62px;pointer-events:none}
+.note .peek{right:-18px;top:-50px;transform:rotate(8deg)}
+.receipt-wrap{position:relative}
+.receipt-wrap .peek{left:50%;margin-left:-37px;top:-46px;z-index:1}
+.close .runner{display:block}
+.who svg.logo{width:38px;height:42px}
+.wall{position:relative;display:flex;align-items:flex-end;justify-content:center;padding-top:44px}
+.month{position:relative;margin:0;width:190px;background:var(--card);color:var(--ink);border:8px solid var(--orange);box-shadow:0 0 0 3px var(--paper);padding:8px;transform:rotate(3deg);display:flex;flex-direction:column;gap:6px}
+.month::before{content:"";position:absolute;top:-46px;left:50%;width:84px;height:38px;margin-left:-42px;
+  background:linear-gradient(to top right,transparent calc(50% - 1.5px),var(--paper) 50%,transparent calc(50% + 1.5px)) left/50% 100% no-repeat,
+             linear-gradient(to top left,transparent calc(50% - 1.5px),var(--paper) 50%,transparent calc(50% + 1.5px)) right/50% 100% no-repeat}
+.month::after{content:"";position:absolute;top:-52px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--paper)}
+.month .plaque{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-align:center;background:var(--ink);color:var(--paper);padding:4px}
+.month img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;max-width:100%}
+.month figcaption{font-family:var(--hand);color:var(--pen);font-size:21px;line-height:1.1;text-align:center}
+.close .wall svg.sitdog{width:140px;height:auto;margin-left:-26px;margin-bottom:-10px;position:relative}
+.ava{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1.5px solid var(--ink);vertical-align:middle;margin-right:8px}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:28px;align-items:start;border-top:2px solid var(--ink);padding-top:24px}
+.story h3{font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.02em}
+.story p{font-size:19px;max-width:60ch}
+
+/* proof stickers */
+.stickers{display:flex;flex-wrap:wrap;gap:18px}
+.stk{background:var(--card);border:2px solid var(--ink);padding:16px 18px;display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 200px;box-shadow:4px 4px 0 var(--ink)}
+.stk:nth-child(odd){transform:rotate(-1.4deg)}
+.stk:nth-child(even){transform:rotate(1.1deg)}
+.stk strong{font-size:44px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stk span{color:var(--muted);font-size:15px}
+
+/* page 2 */
+.big{font-size:clamp(42px,6.4vw,82px);font-weight:800;letter-spacing:-.03em}
+.big .o{color:var(--orange-ink)}
+.lede{font-size:20px;max-width:60ch}
+.gapbox{background:var(--card);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:28px;display:flex;flex-direction:column;gap:22px}
+.table{position:relative;height:190px;border-bottom:4px solid var(--ink);display:flex;align-items:flex-end;justify-content:center;gap:var(--gap,70%);transition:gap .5s cubic-bezier(.3,1.3,.5,1)}
+.cupwrap{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.cupwrap svg{width:96px;height:96px}
+.cupwrap .who2{font-family:var(--hand);font-size:22px;color:var(--pen);white-space:nowrap}
+.pup{position:absolute;right:2%;bottom:4px;width:120px;opacity:0;transform:translateX(40px);transition:opacity .3s,transform .5s}
+@media (max-width:620px){.pup{width:76px;right:0}}
+.pup{transform:translateX(40px) scaleX(-1)}
+.table.met .pup{opacity:1;transform:scaleX(-1)}
+.slider{display:flex;flex-direction:column;gap:10px}
+.slider label{font-weight:600}
+.slider input{width:100%;accent-color:var(--orange);height:32px}
+.stops{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);gap:6px}
+.stops span{flex:1;text-align:center}.stops span:first-child{text-align:left}.stops span:last-child{text-align:right}
+.verdict{display:flex;flex-direction:column;gap:6px}
+.verdict h3{font-size:30px;font-weight:800}
+.verdict p{max-width:62ch}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.pair .col{display:flex;flex-direction:column;gap:10px}
+.pair h3{font-size:28px;font-weight:800}
+.stamps{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.stamp{width:108px;height:108px;border-radius:50%;border:3px double var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-align:center;line-height:1.2;transform:rotate(-8deg);background:var(--card)}
+.stamp b{font-family:var(--display);font-size:24px;letter-spacing:0}
+.stamp:nth-child(2){transform:rotate(6deg)}.stamp:nth-child(3){transform:rotate(-3deg);color:var(--orange-ink);border-color:var(--orange-ink)}
+button.stamp{font:inherit;font-family:var(--mono);font-size:11px;color:var(--pen);border:3px dashed var(--pen);cursor:pointer;transform:rotate(9deg)}
+button.stamp b{color:var(--pen)}
+.nextnote{max-width:58ch}
+
+/* page 3 */
+.rivals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.rival{position:relative;background:var(--card);border:2px solid var(--ink);padding:20px 16px 16px;display:flex;flex-direction:column;gap:8px}
+.rival::before{content:"";position:absolute;top:-12px;left:20px;width:70px;height:22px;background:var(--tape);transform:rotate(-6deg)}
+.rival:nth-child(even){transform:rotate(1deg)}.rival:nth-child(odd){transform:rotate(-.8deg)}
+.rival h3{font-size:20px;font-weight:800}
+.rival p{font-size:15px}
+.rival .steal{font-family:var(--hand);color:var(--pen);font-size:21px;line-height:1.15;border-top:2px dashed var(--line);padding-top:8px}
+.ring{opacity:0}
+.secretbody:not([hidden]) .ring{animation:ring 1.2s ease-in-out infinite}
+.secretbody:not([hidden]) .handset{transform-box:fill-box;transform-origin:50% 100%;animation:jiggle 1.2s ease-in-out infinite}
+@keyframes ring{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
+@keyframes jiggle{0%,45%,100%{transform:none}50%{transform:rotate(-4deg) translateY(-3px)}60%{transform:rotate(4deg) translateY(-3px)}70%{transform:rotate(-3deg) translateY(-2px)}80%{transform:none}}
+.sunwrap{display:flex;flex-direction:column;gap:14px}
+.dots circle{fill:var(--card);stroke:var(--ink);stroke-width:2.5}
+.dots text{font-family:var(--mono);font-size:12px;font-weight:500;text-anchor:middle;fill:var(--ink)}
+.beats{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.beats b{font-family:var(--hand);font-size:20px;color:var(--pen);font-weight:700;margin-right:6px}
+.secret{display:flex;flex-direction:column;align-items:center;gap:24px}
+.reveal{font:inherit;font-family:var(--display);font-size:20px;font-weight:700;background:var(--ink);color:var(--paper);border:0;padding:16px 26px;cursor:pointer;min-height:44px;transform:rotate(-1deg);box-shadow:5px 5px 0 var(--orange);animation:nudge 2.4s ease-in-out infinite}
+.reveal[aria-expanded="true"]{animation:none;opacity:.6}
+@keyframes nudge{0%,88%,100%{transform:rotate(-1deg)}92%{transform:rotate(1.5deg)}96%{transform:rotate(-2.5deg)}}
+.secretbody{width:100%;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:center;background:var(--card);border:3px solid var(--ink);box-shadow:8px 8px 0 var(--orange);padding:28px}
+.secretbody:not([hidden]){animation:unveil .6s cubic-bezier(.3,1.3,.5,1)}
+@keyframes unveil{from{opacity:0;transform:translateY(16px) scale(.97)}}
+.fresco{width:100%;height:auto;max-width:100%}
+.secrettext{display:flex;flex-direction:column;gap:12px}
+.secrettext h3{font-size:clamp(40px,5vw,64px);font-weight:800;letter-spacing:-.03em}
+.secrettext p{font-size:18px}
+.secrettext .from{font-family:var(--hand);color:var(--pen);font-size:22px;line-height:1.15}
+.addme{display:inline-flex;align-items:center;gap:10px;font-weight:700;cursor:pointer;min-height:44px}
+.addme input{width:22px;height:22px;accent-color:var(--orange)}
+@media (max-width:860px){.secretbody{grid-template-columns:minmax(0,1fr)}}
+.philo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.philo p{background:var(--card);border:2px solid var(--ink);padding:26px;font-size:clamp(24px,3vw,34px);font-weight:800;line-height:1.15;letter-spacing:-.01em;display:flex;flex-direction:column;gap:10px}
+.philo p:last-child{background:var(--orange);color:var(--on-orange);transform:rotate(1.2deg);box-shadow:5px 5px 0 var(--ink)}
+.philo p:first-child{transform:rotate(-1deg)}
+.philo .mono{font-size:12px;font-weight:500}
+.philo b{text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:5px;text-decoration-color:var(--pen)}
+@media (max-width:700px){.philo{grid-template-columns:minmax(0,1fr)}}
+.plan{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:6px}
+.plan p{border-top:2px dashed var(--orange);padding-top:8px;font-size:15px;opacity:.95}
+.plan b{display:block;font-family:var(--hand);font-size:24px;color:var(--orange);font-weight:700}
+@media (max-width:700px){.plan{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.knows{background:var(--glow);border:2px solid var(--ink);padding:26px;display:flex;flex-direction:column;gap:14px}
+.knows h3{font-size:28px;font-weight:800}
+.knows ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px}
+.knows li{background:var(--card);border:2px solid var(--ink);padding:8px 14px;font-size:16px;font-weight:600}
+.knows li::before{content:"✓ ";color:var(--orange-ink);font-weight:800}
+.sat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px}
+.sat > div{background:var(--card);border:2px solid var(--ink);padding:22px;display:flex;flex-direction:column;gap:8px}
+.sat > div:last-child{box-shadow:6px 6px 0 var(--orange)}
+.sat p{font-size:19px;font-weight:600}
+.sat .cross{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--orange);text-decoration-thickness:3px}
+@media (max-width:700px){.sat{grid-template-columns:minmax(0,1fr)}}
+.edge{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:19px}
+.edge b{background:var(--orange);color:var(--on-orange);padding:2px 10px;font-weight:800}
+.build{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:30px;align-items:start}
+.ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.idea{position:relative;display:flex;flex-direction:column;gap:10px;padding:20px;background:var(--card);border:2px solid var(--ink);cursor:pointer;transition:transform .15s,box-shadow .15s}
+.idea:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.idea input{position:absolute;opacity:0;width:1px;height:1px}
+.idea:has(input:focus-visible){outline:3px solid var(--pen);outline-offset:3px}
+.idea:has(input:checked){box-shadow:6px 6px 0 var(--orange);border-color:var(--orange-ink)}
+.idea .top{display:flex;gap:12px;align-items:flex-start}
+.idea .ic{width:52px;height:52px;flex-shrink:0}
+.idea h3{font-size:24px;font-weight:800;letter-spacing:-.01em}
+.idea .tick{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap;border:1.5px solid var(--muted);padding:3px 7px}
+.idea:has(input:checked) .tick{background:var(--orange);color:var(--on-orange);border-color:var(--orange)}
+.idea p{font-size:16px}
+.idea .from{font-family:var(--hand);color:var(--pen);font-size:20px;line-height:1.15}
+.idea .mine{font-size:15px;color:var(--muted);border-top:2px dashed var(--line);padding-top:10px}
+.idea .mine b{color:var(--ink)}
+.idea.lead{grid-column:1/-1;background:var(--glow)}
+.receipt{position:sticky;top:calc(env(safe-area-inset-top,0px) + 92px);background:var(--card);padding:24px 22px 34px;display:flex;flex-direction:column;gap:12px;font-family:var(--mono);font-size:14px;filter:drop-shadow(4px 5px 0 var(--ink));
+  -webkit-mask:conic-gradient(from 135deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/16px 51% repeat-x,linear-gradient(#000 0 0) top/100% 51% no-repeat;
+  mask:conic-gradient(from 135deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/16px 51% repeat-x,linear-gradient(#000 0 0) top/100% 51% no-repeat}
+.receipt h3{font-family:var(--mono);font-size:15px;letter-spacing:.1em;text-transform:uppercase;text-align:center;font-weight:500}
+.receipt .rule{border-top:1.5px dashed var(--muted)}
+.receipt ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.receipt .empty{color:var(--muted)}
+.receipt .row{display:flex;justify-content:space-between;gap:8px}
+.receipt .scribble{font-family:var(--hand);color:var(--pen);font-size:24px;text-align:center;transform:rotate(-3deg)}
+.btn{font:inherit;font-family:var(--display);font-size:16px;font-weight:700;padding:12px 16px;cursor:pointer;text-align:center;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--ink)}
+.btn.pri{background:var(--orange);color:var(--on-orange);box-shadow:3px 3px 0 var(--ink)}
+.btn.pri:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.sec{background:var(--card);color:var(--ink)}
+.contact{font-size:13px;color:var(--muted);user-select:all;word-break:break-all;text-align:center}
+.status{min-height:1.2em;font-size:13px;color:var(--orange-ink);text-align:center}
+textarea.fallback{width:100%;min-height:120px;font:inherit;font-size:13px;background:var(--paper);color:var(--ink);border:1px solid var(--line);padding:8px}
+.close{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:34px;background:var(--ink);color:var(--paper)}
+.close h2{font-size:clamp(34px,4.6vw,56px);font-weight:800;letter-spacing:-.02em}
+.close h2 span{color:var(--orange)}
+.close svg{width:170px;height:auto}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+
+@media (max-width:900px){
+  .hero,.story,.pair,.build,.close{grid-template-columns:minmax(0,1fr)}
+  .rivals{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .receipt{position:static}
+  .note{transform:none}
+}
+@media (max-width:620px){
+  .doors{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ideas,.rivals{grid-template-columns:minmax(0,1fr)}
+  .tab .t{display:none}
+  .table{height:160px}
+  .cupwrap svg{width:72px;height:72px}
+  .close svg{width:120px}
+}
+@media (max-width:620px){.trot{display:none}}
+@media (max-width:900px){.receipt-wrap{position:relative!important;top:auto!important;margin-top:40px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.scene .pop{opacity:1;transform:none}}
+</style>
+
+<!-- hand-drawn line filter + reusable corgi -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
+    <g id="corgiFace">
+      <!-- ears -->
+      <path d="M150 38 L143 8 C143 2 149 2 152 6 L167 27 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M163 27 L176 4 C179 -1 185 1 185 7 L187 32 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M151 31 L147 12 L160 27 Z" fill="var(--glow)"/>
+      <path d="M170 25 L178 10 L181 29 Z" fill="var(--glow)"/>
+      <!-- head -->
+      <path d="M146 54 C139 37 151 24 168 24 C180 24 189 30 191 41 L199 50 C203 54 201 61 194 61 L178 63 C163 67 150 63 146 54 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <!-- white blaze down the face -->
+      <path d="M172 26 C170 34 171 42 177 47 L190 52 C196 55 197 60 192 61 L178 63 C167 64 160 58 162 51 C166 45 170 35 172 26 Z" fill="var(--card)"/>
+      <path d="M146 54 C150 63 163 67 178 63 L194 61 C201 61 203 54 199 50" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="165" cy="40" r="3.6" fill="var(--ink)"/><circle cx="166.2" cy="38.8" r="1.2" fill="var(--card)"/>
+      <circle cx="183" cy="39" r="3.6" fill="var(--ink)"/><circle cx="184.2" cy="37.8" r="1.2" fill="var(--card)"/>
+      <path d="M160 33 Q165 30 169 32 M179 31 Q184 29 188 32" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round"/>
+      <ellipse cx="197" cy="53" rx="4.2" ry="3.3" fill="var(--ink)"/>
+      <path d="M184 63 Q185 72 190 69 Q192 65 189 62 Z" fill="#EF8B9B" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M179 62 Q186 66 193 61" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <symbol id="corgi" viewBox="22 -8 186 120" overflow="visible">
+      <!-- tail nub + fluffy rear -->
+      <path d="M44 60 C35 56 30 48 36 44 C43 46 48 53 48 58 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <!-- back legs -->
+      <path d="M64 86 L64 104 Q64 108 69 108 L77 108 Q79 104 77 100 L77 86 Z" fill="var(--orange-ink)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M48 86 L48 104 Q48 108 53 108 L61 108 Q63 104 61 100 L61 86 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M49 101 L61 101 L61 104 Q60 107 56 107 L53 107 Q49 107 49 104 Z" fill="var(--card)"/>
+      <!-- body: long and low -->
+      <path d="M42 60 C44 46 60 42 82 44 L136 44 C152 44 160 54 160 68 L160 86 C160 95 154 98 146 98 L54 98 C40 98 30 90 32 78 C32 70 36 63 42 60 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M60 97 C76 86 118 86 136 97 Z" fill="var(--card)"/>
+      <path d="M36 74 C29 79 31 88 38 91" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- white chest -->
+      <path d="M140 48 C155 48 163 58 163 72 L163 90 C159 98 150 98 144 94 C140 82 136 62 140 48 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- front legs, white -->
+      <path d="M146 92 L146 104 Q146 108 151 108 L159 108 Q161 104 159 100 L159 90 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M128 92 L128 104 Q128 108 133 108 L141 108 Q143 104 141 100 L141 92 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <use href="#corgiFace"/>
+    </symbol>
+    <symbol id="corgiHead" viewBox="136 -6 74 82" overflow="visible">
+      <use href="#corgiFace"/>
+    </symbol>
+    <symbol id="cup" viewBox="0 0 100 100">
+      <path d="M38 14 Q32 22 38 30 M52 10 Q46 20 52 30 M66 14 Q60 22 66 30" fill="none" stroke="var(--muted)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M18 38 L82 38 L76 88 Q75 94 68 94 L32 94 Q25 94 24 88 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M21 58 L79 58 L77 74 L23 74 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="3"/>
+      <path d="M14 32 L86 32 L84 40 L16 40 Z" fill="var(--ink)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <div class="who"><svg class="rough logo" aria-hidden="true"><use href="#corgiHead"/></svg>Khushi Mehta <span class="mono" style="color:var(--muted)">× Corgi Cafe</span></div>
+    <nav class="tabs" role="tablist" aria-label="Pitch pages">
+      <button class="tab" role="tab" id="t-doors" data-page="doors" aria-selected="true"><span class="n">1</span><span class="t">The doors</span></button>
+      <button class="tab" role="tab" id="t-gap" data-page="gap" aria-selected="false"><span class="n">2</span><span class="t">The gap</span></button>
+      <button class="tab" role="tab" id="t-ideas" data-page="ideas-page" aria-selected="false"><span class="n">3</span><span class="t">The ideas</span></button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- PAGE 1 · THE DOORS -->
+<section class="page" id="doors" role="tabpanel" aria-labelledby="t-doors">
+  <div class="hero">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <span class="mono" style="color:var(--orange-ink)">Some things I'd love to build with you</span>
+      <h1>I open <span class="door-word">doors<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="rough" d="M4 12 Q50 2 100 10 T196 8" fill="none" stroke="var(--pen)" stroke-width="5" stroke-linecap="round"/></svg></span> for a living.</h1>
+      <div class="sub">
+        <svg viewBox="0 0 60 44" aria-hidden="true"><path class="rough" d="M4 6 Q8 34 48 34 M38 24 L50 34 L38 42" fill="none" stroke="var(--pen)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p class="pen">Not the wooden kind. The ones that say "invite only", "founders only" and "we'll get back to you".</p>
+      </div>
+    </div>
+    <div class="aside">
+      <div class="note">
+        <svg class="peek rough" aria-hidden="true"><use href="#corgiHead"/></svg>
+        <p>Every interesting startup I looked into led back to Corgi. So I came looking for the person building it behind the scenes.</p>
+        <p class="pen" style="font-size:24px;margin-top:10px">Hi Claudia.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:22px">
+    <p class="pen" style="font-size:30px">Knock on any door ↓</p>
+    <div class="doors" id="doorRow">
+      <button class="door d0" data-d="0" aria-pressed="true" aria-controls="storyBox"><span class="frame"><span class="light"><svg class="scene" viewBox="0 0 60 100" aria-hidden="true"><g class="rough"><rect x="5" y="14" width="50" height="58" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><rect x="5" y="14" width="50" height="11" fill="var(--orange)" stroke="var(--ink)" stroke-width="2"/><path d="M14 9 L14 18 M46 9 L46 18" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/><path d="M5 40 L55 40 M5 56 L55 56 M22 25 L22 72 M38 25 L38 72" stroke="var(--line)" stroke-width="1.5"/></g><use class="pop" href="#cup" x="7" y="27" width="13" height="13"/><use class="pop p2" href="#cup" x="40" y="27" width="13" height="13"/><use class="pop p2" href="#cup" x="23" y="42" width="13" height="13"/><use class="pop p3" href="#cup" x="7" y="58" width="13" height="13"/><use class="pop p3" href="#cup" x="40" y="42" width="13" height="13"/><use class="pop p4" href="#cup" x="23" y="58" width="13" height="13"/><text class="pop p4" x="30" y="90" text-anchor="middle" font-size="12" transform="rotate(-6 30 90)">fully booked</text></svg></span><span class="leaf"><span class="panel p1"></span><span class="panel p2"></span><span class="sign">Invite only</span></span></span><span class="lbl">the gated rooms</span></button>
+      <button class="door d1" data-d="1" aria-pressed="false" aria-controls="storyBox"><span class="frame"><span class="light"><svg class="scene" viewBox="0 0 60 100" aria-hidden="true"><g class="pop"><path class="rough" d="M3 12 L42 12 L42 28 L12 28 L6 34 L8 28 L3 28 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><text x="6" y="24" font-size="10">Coffee soon?</text></g><g class="pop p2"><path class="rough" d="M57 38 L20 38 L20 54 L48 54 L54 60 L52 54 L57 54 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><text x="23" y="50" font-size="10">Thursday!</text></g><g class="pop p3"><path class="rough" d="M3 64 L30 64 L30 78 L12 78 L6 84 L8 78 L3 78 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><circle cx="11" cy="71" r="2" fill="var(--ink)"/><circle cx="17" cy="71" r="2" fill="var(--ink)"/><circle cx="23" cy="71" r="2" fill="var(--ink)"/></g><text class="pop p4" x="54" y="94" text-anchor="end" font-size="10" fill="var(--pen)" style="fill:var(--pen)">seen ✓✓</text></svg></span><span class="leaf"><span class="panel p1"></span><span class="panel p2"></span><span class="sign">Founders only</span></span></span><span class="lbl">the cold DMs</span></button>
+      <button class="door d2" data-d="2" aria-pressed="false" aria-controls="storyBox"><span class="frame"><span class="light"><svg class="scene" viewBox="0 0 60 100" aria-hidden="true"><g class="rough"><rect x="12" y="20" width="36" height="66" rx="6" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><path d="M26 26 L34 26" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/><circle cx="30" cy="80" r="2.5" fill="var(--ink)"/></g><path class="pop" d="M30 58 C18 49 20 38 26 38 C28 38 30 40 30 42 C30 40 32 38 34 38 C40 38 42 49 30 58 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="2"/><text class="pop p2" x="30" y="72" text-anchor="middle" font-size="14" font-weight="700">1M</text><path class="float" d="M8 22 C4 19 5 15 7 15 C8 15 8 16 8 17 C8 16 9 15 10 15 C12 15 12 19 8 22Z" fill="var(--orange)"/><path class="float f2" d="M52 30 C48 27 49 23 51 23 C52 23 52 24 52 25 C52 24 53 23 54 23 C56 23 56 27 52 30Z" fill="var(--orange)"/><path class="float f3" d="M50 12 C46 9 47 5 49 5 C50 5 50 6 50 7 C50 6 51 5 52 5 C54 5 54 9 50 12Z" fill="var(--pen)"/><text class="pop p3" x="30" y="97" text-anchor="middle" font-size="10">"just posted"</text></svg></span><span class="leaf"><span class="panel p1"></span><span class="panel p2"></span><span class="sign">1M followers. Do not DM.</span></span></span><span class="lbl">the big names</span></button>
+      <button class="door d3" data-d="3" aria-pressed="false" aria-controls="storyBox"><span class="frame"><span class="light"><svg class="scene" viewBox="0 0 60 100" aria-hidden="true"><g class="swing"><path class="rough" d="M30 4 L30 14" stroke="var(--ink)" stroke-width="2"/><path class="rough" d="M14 14 L46 14 L42 30 L18 30 Z" fill="var(--pen)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><text x="30" y="26" text-anchor="middle" font-size="9" style="fill:var(--card)">EVENTS</text></g><g class="pop"><path class="rough" d="M4 44 L40 40 L42 54 L6 58 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><text x="10" y="53" font-size="9" transform="rotate(-6 10 53)">VIP · tonight</text></g><g class="pop p2"><path class="rough" d="M20 60 L56 62 L55 76 L19 74 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><text x="24" y="71" font-size="9" transform="rotate(3 24 71)">launch party</text></g><g class="pop p3 rough"><path d="M16 92 Q16 80 30 80 Q44 80 44 92 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="2"/><path d="M12 92 L48 92" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/><circle cx="30" cy="78" r="2.5" fill="var(--ink)"/></g><text class="pop p4" x="52" y="84" text-anchor="end" font-size="11" style="fill:var(--pen)">ding!</text></svg></span><span class="leaf"><span class="panel p1"></span><span class="panel p2"></span><span class="sign">Staff only</span></span></span><span class="lbl">the front desks</span></button>
+      <button class="door d4" data-d="4" aria-pressed="false" aria-controls="storyBox"><span class="frame"><span class="light"><svg class="scene" viewBox="0 0 60 100" aria-hidden="true"><path class="rough" d="M2 8 Q30 20 58 8" fill="none" stroke="var(--ink)" stroke-width="1.5"/><path class="pop" d="M8 11 L13 13 L9 20 Z M20 15 L26 16 L22 23 Z M34 16 L40 15 L38 23 Z M47 13 L52 11 L51 20 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="1"/><path class="beam" d="M30 16 L14 78 L46 78 Z" fill="var(--orange)" opacity=".22"/><g class="pop p2"><rect class="rough" x="15" y="40" width="30" height="14" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text x="30" y="51" text-anchor="middle" font-size="11" font-weight="700">OPEN</text></g><g class="pop p3 rough"><circle cx="10" cy="80" r="5" fill="var(--ink)"/><circle cx="22" cy="78" r="5" fill="var(--pen)"/><circle cx="34" cy="80" r="5" fill="var(--ink)"/><circle cx="46" cy="78" r="5" fill="var(--orange)"/><path d="M2 96 Q10 84 18 96 M14 96 Q22 82 30 96 M26 96 Q34 84 42 96 M38 96 Q46 82 54 96" fill="var(--ink)" stroke="var(--ink)" stroke-width="1"/></g><text class="pop p4" x="30" y="34" text-anchor="middle" font-size="11" style="fill:var(--pen)">opening night</text></svg></span><span class="leaf"><span class="panel p1"></span><span class="panel p2"></span><span class="sign">Nothing here yet</span></span></span><span class="lbl">the empty rooms</span></button>
+    </div>
+    <div class="trot" id="trot" aria-hidden="true"><svg class="rough" viewBox="0 0 170 100" preserveAspectRatio="xMidYMax meet"><use href="#corgi"/></svg></div>
+    <div class="story" id="storyBox" aria-live="polite">
+      <h3 id="sTitle">The rooms you can't buy a ticket to.</h3>
+      <p id="sBody"></p>
+    </div>
+  </div>
+
+  <div class="stickers" aria-label="Proof">
+    <div class="stk"><strong>300+</strong><span>creator partnerships run. 95% came back.</span></div>
+    <div class="stk"><strong>10</strong><span>people on the team I grew as a founding hire</span></div>
+    <div class="stk"><strong>2</strong><span>brands launched from scratch</span></div>
+    <div class="stk"><strong>£10k</strong><span>earned from 6 partnership pipelines I built</span></div>
+    <div class="stk"><strong>50+</strong><span>creators at a launch I ran. Nobody was paid to come.</span></div>
+  </div>
+
+  <div class="pager"><span></span><button class="btn pri" data-go="gap">Next: the gap I keep seeing →</button></div>
+</section>
+
+<!-- PAGE 2 · THE GAP -->
+<section class="page" id="gap" role="tabpanel" aria-labelledby="t-gap" hidden>
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <span class="mono" style="color:var(--orange-ink)">The gap</span>
+    <h2 class="big">The best hire is often <span class="o">three tables away.</span></h2>
+    <p class="lede">Founders can't find the right people. The right people can't get a reply. Putting yourself out there should feel like queuing for a coffee.</p>
+  </div>
+
+  <div class="gapbox">
+    <p class="pen">Drag to close the gap →</p>
+    <div class="table" id="table">
+      <div class="cupwrap"><svg class="rough" aria-hidden="true"><use href="#cup"/></svg><span class="who2">founder, hiring</span></div>
+      <div class="cupwrap"><svg class="rough" aria-hidden="true"><use href="#cup"/></svg><span class="who2">the right person</span></div>
+      <svg class="pup rough" viewBox="0 0 170 100" aria-hidden="true"><use href="#corgi"/></svg>
+    </div>
+    <div class="slider">
+      <label for="gapRange" class="sr">How the founder and the candidate meet</label>
+      <input type="range" id="gapRange" min="0" max="4" step="1" value="0">
+      <div class="stops" aria-hidden="true"><span>Cold CV</span><span>DM, no reply</span><span>Mutual friend</span><span>Warm intro</span><span>Same queue</span></div>
+    </div>
+    <div class="verdict" aria-live="polite"><h3 id="gTitle">The cold application.</h3><p id="gBody"></p></div>
+  </div>
+
+  <div class="philo">
+    <p><span class="mono">Your philosophy</span>The best launch is <b>one social post</b> away.</p>
+    <p><span class="mono">Mine</span>The best hire is <b>one coffee</b> away.</p>
+  </div>
+  <div class="stamps" style="justify-content:center">
+    <span class="stamp"><b>SF</b>Cafe no. 1</span>
+    <span class="stamp"><b>ATL</b>Cafe no. 2</span>
+    <span class="stamp"><b>LDN</b>Cafe no. 3</span>
+    <button class="stamp" type="button" id="nextCafe" aria-expanded="false" aria-controls="nextNote"><b>No. 4</b>tap me</button>
+  </div>
+  <p class="pen nextnote" id="nextNote" style="text-align:center;margin:0 auto" hidden>Whatever works in London travels. Cafe no. 4 opens with its community already waiting.</p>
+
+  <div class="pager"><button class="btn sec" data-go="doors">← Back</button><button class="btn pri" data-go="ideas-page">Next: what I'd build →</button></div>
+</section>
+
+<!-- PAGE 3 · THE IDEAS -->
+<section class="page" id="ideas-page" role="tabpanel" aria-labelledby="t-ideas" hidden>
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <span class="mono" style="color:var(--orange-ink)">The homework</span>
+    <h2 class="big">Before a single idea, <span class="o">I did my homework.</span></h2>
+    <p class="lede" style="font-size:24px;font-weight:600">Rule one: find out what's been done to death.<br>Rule two: don't do it.</p>
+  </div>
+
+  <div class="knows">
+    <h3>What Corgi already nails</h3>
+    <ul>
+      <li>Open 24/7, no membership</li>
+      <li>Startup drinks on the menu</li>
+      <li>The community books its own events</li>
+      <li>A WhatsApp QR at the door</li>
+      <li>Corgis in classical paintings</li>
+      <li>Founder breakfasts with partners</li>
+    </ul>
+  </div>
+
+  <div class="sat">
+    <div><span class="mono" style="color:var(--muted)">Everyone else</span>
+      <p><b>Venture Café</b> · one night a week</p>
+      <p><b>AngelList Founders Cafe</b> · invite only</p>
+      <p><b>Cafe Cursor</b> · pop-ups that end</p>
+      <p><b>The Tower</b> · members first</p>
+      <p class="cross">Panels. Demo days. Networking drinks.</p>
+    </div>
+    <div><span class="mono" style="color:var(--orange-ink)">The gaps nobody's filled</span>
+      <p>The hours after midnight</p>
+      <p>Hiring that doesn't feel like hiring</p>
+      <p>The cafe itself as the tool: the cup, the counter, the wall</p>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <h2 class="big" style="font-size:clamp(34px,4.6vw,56px)">Three things I'd build with you. <span class="o">Plus one off the menu.</span></h2>
+    <p class="pen">Zero extra work for your team. I run them. Tap to add to your order →</p>
+  </div>
+
+  <div class="build">
+    <div class="ideas" id="ideas">
+      <label class="idea lead"><input type="checkbox" id="i-cup" value="Your Cup Is Your Pitch" checked>
+        <div class="top"><svg class="ic rough" viewBox="0 0 100 100" aria-hidden="true"><use href="#cup"/></svg><h3>Your Cup Is Your Pitch</h3><span class="tick">ordered</span></div>
+        <p>Nobody walks up to a stranger in a cafe. Everyone reads a cup. A pot of stickers on the counter: <b>Hiring. Looking. Need a co-founder.</b> Grab one, stick it on, and the cup does the talking.</p>
+        <p class="from">Why Corgi wins: you already sell cups to sponsors. These are the cups people actually read, and photograph.</p>
+        <p class="mine"><b>First step:</b> I design and supply the stickers. Your team just puts the pot down.</p>
+      </label>
+      <label class="idea"><input type="checkbox" id="i-trial" value="The Trial Shift" checked>
+        <div class="top"><svg class="ic rough" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="28" r="20" fill="var(--card)" stroke="var(--ink)" stroke-width="3"/><path d="M26 28 L26 16 M26 28 L34 32" stroke="var(--orange)" stroke-width="3.5" stroke-linecap="round"/><path d="M20 4 L32 4" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/></svg><h3>The Trial Shift</h3><span class="tick">ordered</span></div>
+        <p>In hospitality, nobody's hired off a CV. You do a trial shift. Candidates spend two hours at a founder's table on a real problem. No interview. No pitch.</p>
+        <p class="from">Why Corgi wins: startups that are hiring are startups that are growing. That's when they need cover.</p>
+        <p class="mine"><b>First step:</b> I find three founders and three candidates, and run the first one.</p>
+      </label>
+      <label class="idea"><input type="checkbox" id="i-notes" value="Cover Notes">
+        <div class="top"><svg class="ic rough" viewBox="0 0 52 52" aria-hidden="true"><rect x="8" y="10" width="36" height="36" fill="var(--card)" stroke="var(--ink)" stroke-width="3" transform="rotate(-6 26 28)"/><path d="M16 24 L36 22 M16 31 L34 29 M16 38 L28 37" stroke="var(--pen)" stroke-width="2.5" stroke-linecap="round"/><circle cx="26" cy="9" r="5" fill="var(--orange)" stroke="var(--ink)" stroke-width="2.5"/></svg><h3>Cover Notes</h3><span class="tick">add</span></div>
+        <p>A wall where anyone pins a one-page note to a startup in the room: "Here's what I'd fix in your onboarding." The best notes turn into coffees.</p>
+        <p class="from">Why Corgi wins: regulars come back just to check the wall.</p>
+        <p class="mine"><b>First step:</b> one corkboard, a stack of cards. I keep it alive.</p>
+      </label>
+    </div>
+
+    <div class="receipt-wrap" style="position:sticky;top:calc(env(safe-area-inset-top,0px) + 120px)">
+    <svg class="peek rough" aria-hidden="true"><use href="#corgiHead"/></svg>
+    <aside class="receipt" aria-label="Your coffee order" style="position:static">
+      <h3>Coffee order</h3>
+      <div class="rule"></div>
+      <div class="row"><span>For</span><span>Claudia</span></div>
+      <div class="row"><span>From</span><span><img class="ava" src="khushi-sm.jpg" alt="" width="28" height="28">Khushi</span></div>
+      <div class="rule"></div>
+      <ol id="orderList"></ol>
+      <p class="empty" id="orderEmpty" hidden>Nothing ordered yet. Tap an idea.</p>
+      <div class="rule"></div>
+      <div class="row"><span>Ideas</span><span id="orderCount">2</span></div>
+      <div class="row"><span>Cost to you</span><span>£0</span></div>
+      <div class="row"><span>Coffee</span><span>on me</span></div>
+      <p class="scribble">see you at the counter?</p>
+      <button class="btn pri" type="button" id="copyBtn">Copy my order</button>
+      <a class="btn sec" href="https://www.linkedin.com/in/khushi-mehta-b82b641b0" target="_blank" rel="noopener">Message Khushi on LinkedIn</a>
+      <span class="contact">khusshh541@gmail.com</span>
+      <span class="status" id="copyStatus" role="status"></span>
+      <textarea class="fallback" id="fallback" aria-label="Your order text" hidden></textarea>
+    </aside>
+    </div>
+  </div>
+
+  <div class="secret" id="secret">
+    <button class="reveal" type="button" id="revealBtn" aria-expanded="false" aria-controls="secretBody"><span class="pen" style="color:inherit">psst.</span> There's one more thing. It's off the menu.</button>
+    <div class="secretbody" id="secretBody" hidden>
+      <div class="sunwrap">
+        <svg class="fresco" viewBox="0 0 400 230" role="img" aria-label="Two old rotary phones, one in London at 2am and one in San Francisco at 6pm, joined by a long curly cord across the sky. The San Francisco phone is ringing.">
+          <path class="rough" d="M100 120 C120 20, 280 20, 300 120" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="7 7"/>
+          <path class="rough" d="M86 128 q6 -10 12 0 q6 10 12 0 q6 -10 12 0 M278 128 q6 -10 12 0 q6 10 12 0 q6 -10 12 0" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+          <g class="rough">
+            <path d="M30 196 L110 196 L100 152 L40 152 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="70" cy="174" r="15" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
+            <circle cx="70" cy="174" r="4" fill="var(--ink)"/>
+            <path d="M24 146 Q24 130 40 132 L100 132 Q116 130 116 146 L104 148 Q70 140 36 148 Z" fill="var(--ink)"/>
+            <path d="M290 196 L370 196 L360 152 L300 152 Z" fill="var(--orange)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="330" cy="174" r="15" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
+            <circle cx="330" cy="174" r="4" fill="var(--ink)"/>
+            <g class="handset"><path d="M284 146 Q284 130 300 132 L360 132 Q376 130 376 146 L364 148 Q330 140 296 148 Z" fill="var(--ink)"/></g>
+            <path d="M8 204 L392 204" stroke="var(--ink)" stroke-width="3"/>
+            <path d="M48 20 A12 12 0 1 0 60 38 A9 9 0 1 1 48 20 Z" fill="var(--glow)" stroke="var(--ink)" stroke-width="2"/>
+            <circle cx="350" cy="34" r="12" fill="var(--orange)" stroke="var(--ink)" stroke-width="2.5"/>
+          </g>
+          <g class="ring" stroke="var(--pen)" stroke-width="3" fill="none" stroke-linecap="round">
+            <path d="M386 120 Q394 132 386 144"/><path d="M274 120 Q266 132 274 144"/>
+            <path d="M394 112 Q406 132 394 152"/><path d="M266 112 Q254 132 266 152"/>
+          </g>
+          <text x="70" y="224" text-anchor="middle" style="font-family:var(--hand);font-size:19px;fill:var(--pen)">London · 2am</text>
+          <text x="330" y="224" text-anchor="middle" style="font-family:var(--hand);font-size:19px;fill:var(--pen)">San Francisco · 6pm</text>
+          <text x="200" y="58" text-anchor="middle" style="font-family:var(--hand);font-size:20px;fill:var(--ink)">5,000+ miles</text>
+        </svg>
+        <p class="pen" style="text-align:center;font-size:22px">If it rings, pick it up.</p>
+      </div>
+      <div class="secrettext">
+        <span class="mono" style="color:var(--orange-ink)">Off the menu</span>
+        <h3>The Corgi Line.</h3>
+        <p>An old rotary phone on the wall in London. Pick it up, and it rings in the San Francisco cafe. <b>Whoever's nearest answers.</b></p>
+        <p>No agenda. No intro. Two strangers, 5,000 miles apart, both awake at an hour nobody else is.</p>
+        <p>Both cafes never close. <b>Somebody always picks up.</b></p>
+        <p class="from">Why Corgi wins: three cafes become one room. And every call is a video someone wants to post.</p>
+        <p class="mine" style="font-size:15px;color:var(--muted)"><b style="color:var(--ink)">First step:</b> one phone at each end. I set it up and write the sign.</p>
+        <label class="addme"><input type="checkbox" id="i-paint" value="The Corgi Line"> Add this to my order</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="close">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span class="mono" style="color:var(--orange)">Last orders</span>
+      <h2>These are rough. The good version gets built <span>over coffee.</span></h2>
+      <div class="plan" aria-label="My first month">
+        <p><b>Week 1</b> Stickers on the counter</p>
+        <p><b>Week 2</b> The wall goes up</p>
+        <p><b>Week 3</b> First trial shift</p>
+        <p><b>Week 4</b> I tell you what worked</p>
+      </div>
+      <p style="max-width:56ch">If any of it is worth doing, let's do it together.</p>
+    </div>
+    <div class="wall">
+      <figure class="month">
+        <span class="plaque">Future regular</span>
+        <img src="khushi.jpg" alt="Khushi Mehta, smiling" width="440" height="550">
+        <figcaption>Khushi · see you at the counter</figcaption>
+      </figure>
+      <svg class="sitdog rough" viewBox="22 -2 184 114" aria-hidden="true"><use href="#corgi"/></svg>
+    </div>
+  </div>
+
+  <div class="pager"><button class="btn sec" data-go="gap">← Back</button><span></span></div>
+</section>
+</main>
+
+<script>
+(function(){
+  var pages=["doors","gap","ideas-page"],tabIds={"doors":"t-doors","gap":"t-gap","ideas-page":"t-ideas"};
+  function show(id){
+    if(pages.indexOf(id)<0) id="doors";
+    pages.forEach(function(p){
+      document.getElementById(p).hidden=(p!==id);
+      document.getElementById(tabIds[p]).setAttribute("aria-selected",p===id?"true":"false");
+    });
+  }
+  function go(id){
+    if(location.hash!=="#"+id){location.hash=id}else{show(id)}
+    window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+  }
+  document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){go(b.dataset.page)})});
+  document.querySelectorAll("[data-go]").forEach(function(b){b.addEventListener("click",function(){go(b.dataset.go)})});
+  window.addEventListener("hashchange",function(){show(location.hash.slice(1))});
+  show(location.hash.slice(1));
+
+  /* doors */
+  var stories=[
+    ["The rooms you can't buy a ticket to.","I recently joined a new community and my calendar is now wall-to-wall coffee chats. Gated rooms tend to open the same way: one good conversation, then an intro to the next person."],
+    ["Founders reply when you ask properly.","I built my LinkedIn network by messaging founders directly and asking for a coffee. No warm intro, no hesitation. Most of the people I know in London started as a message like that."],
+    ["I DM'd them anyway.","As a founding hire at WLDD in Bangalore, I built a LinkedIn creator partnerships vertical into a 10-person team. 300+ creator partnerships, 95% came back. Creators with a million followers posted for our brands, and they still pick up when I call."],
+    ["Sometimes you just walk in.","Last month I walked across Oxford Circus and into luxury hotels with no appointment, to meet their teams face to face. That's how I built six partnership pipelines. Together they brought in £10k."],
+    ["Some doors you build yourself.","At my last role I built the marketing for two venues in Coventry from zero: 11 channels, no setup to inherit. Before launch I reached out to 100+ creators. 50+ turned up, and nobody was paid to come."]
+  ];
+  var doors=document.querySelectorAll(".door"),trot=document.getElementById("trot"),cur=0;
+  function openDoor(i){
+    var dog=trot.querySelector("svg");
+    if(i!==cur){dog.classList.toggle("left",i<cur);trot.classList.remove("go");void trot.offsetWidth;trot.classList.add("go")}
+    trot.style.setProperty("--i",i);cur=i;
+    doors.forEach(function(d){d.setAttribute("aria-pressed",+d.dataset.d===i?"true":"false")});
+    document.getElementById("sTitle").textContent=stories[i][0];
+    document.getElementById("sBody").textContent=stories[i][1];
+  }
+  doors.forEach(function(d){d.addEventListener("click",function(){openDoor(+d.dataset.d)})});
+  openDoor(0);
+
+  /* gap slider */
+  var gaps=["70%","52%","34%","16%","2%"];
+  var verdicts=[
+    ["The cold application.","One CV in a pile of three hundred. The founder never sees how this person thinks."],
+    ["The DM with no reply.","Brave, but founders get dozens a day. Most go unread."],
+    ["The mutual friend.","Better. But it depends on luck and who happens to know who."],
+    ["The warm intro.","Someone who knows both sides makes the connection. This is the part I do."],
+    ["The same coffee queue.","At Corgi they're already standing in the same line. Someone just has to say hello for them."]
+  ];
+  var r=document.getElementById("gapRange"),t=document.getElementById("table");
+  function setGap(){
+    var v=+r.value;
+    t.style.setProperty("--gap",gaps[v]);
+    t.classList.toggle("met",v===4);
+    document.getElementById("gTitle").textContent=verdicts[v][0];
+    document.getElementById("gBody").textContent=verdicts[v][1];
+    r.setAttribute("aria-valuetext",verdicts[v][0]);
+  }
+  r.addEventListener("input",setGap);setGap();
+
+  var nb=document.getElementById("nextCafe"),nn=document.getElementById("nextNote");
+  nb.addEventListener("click",function(){nn.hidden=!nn.hidden;nb.setAttribute("aria-expanded",nn.hidden?"false":"true")});
+
+  /* order */
+  var rb=document.getElementById("revealBtn"),sb=document.getElementById("secretBody");
+  rb.addEventListener("click",function(){var open=sb.hidden;sb.hidden=!open;rb.setAttribute("aria-expanded",open?"true":"false");if(open)sb.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"})});
+  var boxes=document.querySelectorAll("#ideas input, #i-paint");
+  function render(){
+    var list=document.getElementById("orderList");list.innerHTML="";var n=0;
+    boxes.forEach(function(b){
+      var card=b.closest(".idea");if(card)card.querySelector(".tick").textContent=b.checked?"ordered":"add";
+      if(b.checked){n++;var li=document.createElement("li");li.textContent=b.value;list.appendChild(li)}
+    });
+    document.getElementById("orderCount").textContent=n;
+    document.getElementById("orderEmpty").hidden=n>0;
+    list.hidden=n===0;
+  }
+  boxes.forEach(function(b){b.addEventListener("change",render)});render();
+
+  document.getElementById("copyBtn").addEventListener("click",function(){
+    var picked=[];boxes.forEach(function(b){if(b.checked)picked.push("- "+b.value)});
+    var text="Hi Khushi, coffee's on. I'd like to talk about:\n"+(picked.length?picked.join("\n"):"- All of it");
+    var st=document.getElementById("copyStatus"),fb=document.getElementById("fallback");
+    function fallback(){fb.hidden=false;fb.value=text;fb.focus();fb.select();st.textContent="Copy the text below and send it over."}
+    try{navigator.clipboard.writeText(text).then(function(){st.textContent="Copied. Paste it into a message to Khushi."},fallback)}catch(e){fallback()}
+  });
+})();
+</script>
+
+</body>
+</html>
